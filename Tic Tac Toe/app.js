@@ -9,7 +9,7 @@ let board = new Array(9)
 allSquares.forEach((square, i) => { // Looping through all the buttons
     square.addEventListener("click", () => {
        
-        if (square.innerHTML || gameOver) { //Putting square here sees if its true in other words if theres text in it.
+        if (square.innerHTML || gameOver) { //Putting square.innerHTML here sees if its true in other words if theres text in it.
             return    //This code block checks to see if the game is over if so return the code stop the rest of the code from executing
         }
 
