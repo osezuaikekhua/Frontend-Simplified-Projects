@@ -35,11 +35,11 @@ function deleteTodo(id) {
 function renderTodo () {
     list.innerHTML = todoList.map((element) => 
         `<li>
-        ${element.task}
-        <button class="todo__delete" onclick = "deleteTodo(${element.id})">
-        x
-        </button>
-    </li>`
+            ${element.task}
+            <button class="todo__delete" onclick = "deleteTodo(${element.id})">
+            x
+            </button>
+        </li>`
     ).join("")
 }
 

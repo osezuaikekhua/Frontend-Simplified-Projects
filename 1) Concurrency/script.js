@@ -20,15 +20,18 @@ async function fetchUserData(id) {
 
 // Put your code here
 async function main(){
+  //Fetch user ids
   const userIds = await fetchFollowerIds()
+  //Get user data in a promise
   const userData = await userIds.map((id) => fetchUserData(id))
+  //Wait for user data
   const users = await Promise.all(userData)
 
-  
+  //Turn user data into html
   document.querySelector('.followers').innerHTML = 
   users.map((data) => userHtml(data)).join("")
 
-    
+  //Display the user's information on the page  
   function userHtml(data){
     return `<div class="profile">
     <img class="profile__avatar" src=${data.avatar}>

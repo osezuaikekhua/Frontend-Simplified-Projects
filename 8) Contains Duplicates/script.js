@@ -2,15 +2,14 @@
 
 
 
-
 function Duplicates(nums) {
-    const charMap = new Map()
+    const set = new Set()
 
     for(let i = 0; i < nums.length; ++i){
-        if(charMap.has(nums[i])){ //Tells you that the element that you have in the paraentheses exist in the map
+        if(set.has(nums[i])){ //Tells you that the element that you have in the paraentheses exist in the map
             return console.log(true)
         }
-        charMap.set(nums[i]) //If it doesnt exist in the set then we add it
+        set.add(nums[i]) //If it doesnt exist in the set then we add it
     }
     return console.log(false)
 }

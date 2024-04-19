@@ -6,7 +6,12 @@ let currentPlayer = 'X'
 let gameOver = false
 let board = new Array(9)
 
+
 allSquares.forEach((square, i) => { // Looping through all the buttons
+    /*Many thinggs need to happen after the user makes a move.
+    they must be in the order that they are because of how the 
+    game of tic tac toe works.    
+    */
     square.addEventListener("click", () => {
        
         if (square.innerHTML || gameOver) { //Putting square.innerHTML here sees if its true in other words if theres text in it.
@@ -17,7 +22,7 @@ allSquares.forEach((square, i) => { // Looping through all the buttons
         board[i] = currentPlayer
 
 
-       if(checkWin()) { //Means that is check win is true then run the following code
+       if(checkWin()) { //Means that if check win is true then run the following code
         title.innerHTML = `${currentPlayer} Has Won The Game!`
         gameOver = true
         return // Used return because it'll change it again from the code below changing the SAME variable
@@ -28,7 +33,8 @@ allSquares.forEach((square, i) => { // Looping through all the buttons
         return
        }
 
-        currentPlayer = currentPlayer ==='X' ? 'O' : 'X' //This swaps the current player from "X" to "O"
+        currentPlayer = currentPlayer ==='X' ? 'O' : 'X'//This swaps the current player from "X" to "O"
+                                                        //Basicall if the current player is X make it O else (if the player is O) make it X.
         title.innerHTML = `${currentPlayer}'s Turn`
     })
     
@@ -52,6 +58,8 @@ function checkDraw() {
     }}
    return true          //Then if you look up we see that if checkDraw is true then say its a draw
 }
+//This is what the board looks like
+{/*board = ["X","O","X","X","o"] */}
 
 function checkWin() {
     const winningIndicies = [
@@ -62,8 +70,8 @@ function checkWin() {
         // Vertical Wins
         [0, 3, 6],
         [1, 4, 7],
-        // Diagonal Wins
         [2, 5, 8],
+        // Diagonal Wins
         [0, 4, 8],
         [2, 4, 6],
     ]
