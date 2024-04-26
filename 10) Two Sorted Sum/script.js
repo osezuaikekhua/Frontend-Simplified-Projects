@@ -1,10 +1,13 @@
 //Introduction to pointers
-//This code finds the numbers in the array that equal the target using pointers
+//This code finds the numbers in the array that equal the target using pointers. ARRAY NEEDS TO BE SORTED LEAST TO GREATEST
 const twoSortedSum = (nums, target)=>{
+
     let l = 0                   //the values of l and r are equal to the index of nums array
     let r = nums.length - 1
-
+    nums.sort((a,b) => a-b) //Sorts array from least to greatest for pointers to work VERY IMPORTANT
     while(l < r){
+        
+
         const sum = nums[l] + nums[r]  
 
         if(sum > target) {
@@ -14,12 +17,11 @@ const twoSortedSum = (nums, target)=>{
         if(sum < target){
             l++         //Since sum is still to small we will move to the next higer number(to the right)
         }
-        else {
-            console.log([l, r])
-            l++ 
+        if(sum === target) {
+            return [nums[l], nums[r]]
         }
        
     }
 }
 
-twoSortedSum([1, 2, 4, 9], 13) //If the array isnt already sorted from least to greatest, use sort method to do so.
+console.log(twoSortedSum([10, 1, 7, 3, 4,], 11)) //If the array isnt already sorted from least to greatest, use sort method to do so.

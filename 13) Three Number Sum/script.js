@@ -1,5 +1,19 @@
+/** Three Sum
+ *
+ * Given an array of integers 'nums', return an array of all the
+ * three numbers that add up to 0.
+ *
+ * Note: There cannot be any duplicate triplets in the results array.
+ *
+ * @examples
+ * threeSum([-1, 0, 1, 2, -1, -4]) = [[-1, -1, 2], [-1, 0, 1]]
+ * threeSum([-2, -2, 0, 0, 1, 1, 2, 2]) = [[ -2, 0, 2 ], [ -2, 1, 1 ]]
+ * threeSum([0, 0, 0, 0]) = [[0, 0, 0]]
+ */
+
+/* Given an array of interger 'nums', return an array of all the three number that add up to 0 */
 //This code is the same as the two sorted sum, but just 3 numbers
-const threeSum = (nums) => {
+const threeSum = (nums, target) => {
     nums.sort((a,b) => a - b) //Putting it from least to greatest
     const results = []
 
@@ -13,13 +27,13 @@ const threeSum = (nums) => {
         while (l < r){ //This while loop makes sure the pointers keep looping and dont skip to the next iteration after finding numbers that equal the target
             const sum = nums[i] + nums[l] + nums[r]
 
-            if(sum > 0) {
+            if(sum > target) {
                 r--
             }
-            if(sum < 0) {
+            if(sum < target) {
                 l++
             }
-            if(sum === 0) {
+            if(sum === target) {
                 results.push([nums[i], nums[l], nums[r]])
                 l++
                 while (nums[l] === nums[l - 1] && l < r){ // Makes sure the left pointer is'nt identical to the previous left pointer
@@ -30,4 +44,4 @@ const threeSum = (nums) => {
     }
     console.log(results)
 }
-threeSum([-1, 0, 1, 2, -1, -4])
+threeSum([-1, 0, 1, 2, -1, -4], 0)

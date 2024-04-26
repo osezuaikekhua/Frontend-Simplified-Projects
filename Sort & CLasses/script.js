@@ -1,9 +1,19 @@
-const BubbleSort = (arr) => {
+/** Bubble Sort **
+ * 
+ * Sort the 'nums' array using bubble sort.
+ *  
+ * @example
+ * bubbleSort([3, 2, 1]) -> [1, 2, 3]
+ * bubbleSort([0, 12, 8]) -> [0, 8, 12]
+ * bubbleSort([3, 4, 0, 2]) -> [0, 2, 3, 4]
+ * 
+ */
 
+const BubbleSort = (arr) => {
 
     for(let i = 1; i < arr.length; i++){
 //            left: 9      right: 5
-        while(arr[i - 1] > arr[i]){
+        while(arr[i - 1] > arr[i]){ //While the number to the left is greater, keep swapping
             
                 let temp = arr[i] //saving the value 
                 arr[i] = arr[i -1] //since u cant litterally switch them we changed their values to the other one
@@ -12,10 +22,10 @@ const BubbleSort = (arr) => {
             
         }
     }
-    console.log(arr)
+    return arr
 }
 
-BubbleSort([9,5,2,7,8])
+ console.log(BubbleSort([9,5,2,7,8]))
 
 
 class Car {

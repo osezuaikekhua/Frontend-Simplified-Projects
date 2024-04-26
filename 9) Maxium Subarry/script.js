@@ -1,6 +1,9 @@
+/*Sub arrays are a continous slice of an array. Just 2 numbers make up a sub array
+*So we need to find which sub array is the highest value.             
+*/
             /* VERSION 3 (most optimal) */
 
-const nums = [1, 2, 3, 4, 5, 6]
+const nums = [1, -2, 3, -4, 5, 6]
 let maxSum = nums[0]
 let sum = 0
 for(let i = 0; i < nums.length; ++i){
